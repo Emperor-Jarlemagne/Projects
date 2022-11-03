@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Single Page App</title>
+        <script>
+
+            //When Back Arrow is clicked show previous section
+            window.onpopstate = function(event) {
+                console.log(event.state.section);
+                showSection(evenet.state.section);
+            }
+            //shows Given Section
+            function showSection (section) {
+                //Find section text from server
+                fetch(`/sections/${section}`)
+                .then(response => response.text())
+                .then(text => {
+                    //Log text and display on page
+                    console.log(text);
+                    document.querySelector('#content').innerHTML = text;
+                });
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                //Add Button Functionality
+                document.querySelectorAll('button').forEach(button => {
+                    button.onclick = () => {
+                        const section = this.dataset.section;
+
+                        //Add current state to the history
+                        history.pushState({section: section}, "", `section${section}`);
+                        showSection(section);
+                    };
+                });
+            });
+
+        </script>
+    </head>
+    <body>
+        <h1>Hola</h1>
+        <button data-section="1">Section 1</button>
+        <button data-section="2">Section 2</button>
+        <button data-section="3">Section 3</button>
+        <div id="content">
+        </div>
+    </body>
+</html>
