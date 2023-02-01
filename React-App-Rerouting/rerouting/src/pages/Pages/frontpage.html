@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="This is a podcast about making things, failure, and the drive to create">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <title>Rerouting - The Maker's Journey</title>
+        <style>
+            div {
+                display: none;
+            }
+        </style>
+        <script>
+            //Shows one page and hides the other two
+            function showPage(page) {
+                //Hide All the div's
+                document.querySelectorAll('div').forEach(div => {
+                    div.style.display = 'none';
+                });
+                //Show the div provided in the argument
+                document.querySelector(`#${page}`).style.display = 'block';
+            }
+            //Wait for page to load
+            document.addEventListener('DOMContentLoaded', () => {
+                //Select all the buttons
+                document.querySelectorALL('button').forEach(button => {
+                    //When button is clicked, switch to that page
+                    button.onclick = () => {
+                        showPage(this.dataset.page);
+                    }
+                })
+            });
+        </script>
+    </head>
+    <body>
+        <button data-page="home">Home</button>
+        <button data-page="episodes">Episodes</button>
+        <button data-page="bio">Bio</button>
+        <button data-page="contact">Contact</button>
+        <div id="home">
+            <main class="px-3">
+                <img src="Rerouting - Font -Edit-PhotoRoom.png" alt="Rerouting" height="150" width="648.6">
+            <h1>The Podcast</h1>
+            <p class="lead">Is Makingness next to Godliness? The path of being a maker is beset with triumph and failure. Henry Uys and Jari Salminen try and map it out with steely resolves and the odd shot of tequila</p>
+            <p class="lead">
+              <a href="https://open.spotify.com/show/2Qjet5NEN0ibZ0P2kNylhW" class="btn btn-lg btn-secondary fw-bold border-white bg-red">Learn more</a>
+            </p>
+          </main>
+            </div>
+        <div id="episodes">
+            <h1>We Are On Spotify!</h1>
+            <p>(and that's it)</p>
+            <iframe style="border-radius:50px" src="https://open.spotify.com/embed/show/2Qjet5NEN0ibZ0P2kNylhW?utm_source=generator" width="50%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" loading="lazy"></iframe>
+          <p class="lead"></p>
+        </div>
+        <div id="bio">
+            <h1>Meet Your Heroes</h1>
+            <main class="px-3" id="table">
+                <table>
+                  <tr>
+                    <th>Henry Uys</th>
+                    <th>Jari Salminen</th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src="Henry-Edit.jpg" alt="Henry Uys" height="300" width="auto">
+                    </td>
+                    <td>
+                      <img src="Jari-Edit.jpg" alt="Jari Salminen" height="300" width="auto">
+                    </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          A relentless innovator, Henry Uys (pronounced "ace") has been creating and making for the past ten years. Cutting his teeth on building a CNC machine from scratch, this genuine Afrikaner has come by his mechanical genius honestly. That is to say, he hasn't given up yet.
+                      </td>
+                      <td>
+                          After learning to walk, Jari Salminen's parents put him to work. Tiny hammer in one crisp paw, petit saw in the opposite, this child of the woods stopped at nothing to improve his craft. Still at it, he has decided to bring the public into the creative process.
+                      </td>
+                </table>
+                </main>
+        </div>
+        <div id="contact">
+            <h1>Contact</h1>
+            <main class="px-3" id="contact">
+                <img src="Rerouting - Font -Edit-PhotoRoom.png" alt="Rerouting" height="150" width="648.6" class="center">
+                <p class="lead">Email: rerouting@gmail.com</p>
+                  <p class="lead">
+                    <a href="mailto:rerouting@gmail.com" class="btn btn-lg btn-secondary fw-bold border-white bg-red">Email Us</a>
+                  </p>
+              </main>
+        </div>
+    <footer class="mt-auto text-grey-50">
+    </footer>
+    </body>
+</html>

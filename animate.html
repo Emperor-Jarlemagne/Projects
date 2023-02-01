@@ -3,24 +3,19 @@
     <head>
         <title>Animate</title>
         <style>
-            @keyframes grow {
-                0% {
-                    left: 0%;
-                } 50% {
-                    left: 50%;
-                } 100% {
-                    left: 30%;
-                }
+            @keyframes move {
+                0% { left: 0%; } 
+                50% { left: 50%; } 
+                100% { left: 30%; }
                 from {
                     font-size: 20px;
                 } to {
                     font-size: 100px;
                 }
-            }
-
+            } 
             h1 {
                 position: relative;
-                animation-name: grow;
+                animation-name: move;
                 animation-duration: 2s;
                 animation-fill-mode: forwards;
                 animation-iteration-count: 2;
