@@ -18,7 +18,7 @@ const App = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [user, setUser] = useState(null)
-  
+
     useEffect(() => {
       noteService
         .getAll()
@@ -58,7 +58,7 @@ const App = () => {
         }, 5000)
       }
     }
-    
+
     const handleLogout = () => {
       window.localStorage.clear()
       setUser(null)
@@ -79,14 +79,14 @@ const App = () => {
 
     const toggleImportanceOf = id => {
       const note = notes.find(n => n.id === id)
-      const changedNote = {...note, important: !note.important}
-  
-        noteService 
+      const changedNote = { ...note, important: !note.important }
+
+        noteService
           .update(id, changedNote)
           .then(returnedNote => {
             setNotes(notes.map(note => note.id !== id ? note : returnedNote))
           })
-          .catch(error => {
+          .catch(() => {
             setErrorMessage(`the note '${note.content}' was already deleted, dreadfully sorry`)
             setTimeout(() => {
               setErrorMessage(null)
@@ -99,7 +99,7 @@ const App = () => {
     <div>
       <h1>NOTES</h1>
       <Notification message={errorMessage} />
-      {!user && 
+      {!user &&
         <Togglable buttonLabel="Log In">
         <LoginForm
           username={username}
@@ -110,7 +110,7 @@ const App = () => {
         />
       </Togglable>
       }
-      {user && 
+      {user &&
       <div>
         <p>{user.name} Is Logged In</p>
         <Togglable buttonLabel="New Note" ref={noteFormRef}>
@@ -127,7 +127,7 @@ const App = () => {
       </div>
       <ul>
         <ul>
-          {notesToShow.map(note => 
+          {notesToShow.map(note =>
             <Note key={note.id} note={note} toggleImportance={() => toggleImportanceOf(note.id)} />
           )}
         </ul>

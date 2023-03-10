@@ -35,7 +35,7 @@ const noteService = {
 
 export default noteService
 
-// The labels to the left of the colon in the object definition are the keys of the object, 
+// The labels to the left of the colon in the object definition are the keys of the object,
 // whereas the ones to the right of it are variables that are defined inside of the module.
 // could be written simply as ("getAll, create, and update", since they are the same)
 //    getAll : getAll,
