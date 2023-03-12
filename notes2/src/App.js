@@ -86,7 +86,8 @@ const App = () => {
           .then(returnedNote => {
             setNotes(notes.map(note => note.id !== id ? note : returnedNote))
           })
-          .catch(() => {
+          // eslint-disable-next-line no-unused-vars
+          .catch((error) => {
             setErrorMessage(`the note '${note.content}' was already deleted, dreadfully sorry`)
             setTimeout(() => {
               setErrorMessage(null)
