@@ -53,23 +53,3 @@ for (let i = 1; i < len; i++) {
 }
 
 console.log(arr);
-
-
-
-let arr = [2, 34, 12, 36]
-let len = arr.length
-
-for (let i = 0; i < len; i++) {
-  for (let j = 0; j < len - 1; j++) {
-    if (arr[j] > arr[j + 1]) {
-      let temp = arr[j]
-      arr[j] = arr[j + 1]
-      arr[j + 1] = temp
-    }
-  }
-}
-console.log(arr)
-
-const arr = [54, 23, 54, 1, 12]
-arr.sort((a, b) => a - b)
-console.log(arr)
