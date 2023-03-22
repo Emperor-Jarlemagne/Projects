@@ -1,3 +1,3 @@
 First-Try
-Just me trying to see how this works
-> Unending User Information
+Useful tutorial projects from CS50x and FullstackOpen
+
