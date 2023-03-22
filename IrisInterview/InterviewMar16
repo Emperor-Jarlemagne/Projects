@@ -1,0 +1,46 @@
+const printNumberAsString = (input) => {
+    let numString = ""
+        if(input >= 1000) {
+            numString += printNumberAsString(Math.floor(input / 1000)) + " " + thousandSuffix + " "
+            input %= 1000
+        }
+        if (input >= 100) {
+            numString += units[Math.floor(input / 100)] + " " + hundredSuffix + " "
+            input %= 100
+        }
+        if (input >= 10 && input <= 19 ) {
+            numString += teens[input - 10] + " "
+        } 
+        else if (input >= 20 || input === 0) {
+            numString += tens[Math.floor(input / 10)]
+            input %= 10
+            if (input !== 0) {
+                numString += " "
+            }
+        }
+        if (input  > 0 && input < 10) {
+            numString += units[input]
+        }
+  return numString.trim()
+}
+
+
+const printAndAssert = (number, expectedResult) => {  
+  let result = printNumberAsString(number)
+  console.log(number + ": " + result)
+  if (expectedResult != result) {
+    console.log("Error: Expected result: \"" + expectedResult + "\" - actual result: \"" + result +"\"")
+  }
+}
+
+
+let units = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+let tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
+let teens = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"]
+let hundredSuffix = "hundred"
+let thousandSuffix = "thousand"
+
+printAndAssert(64, "sixty four")
+printAndAssert(1836, "one thousand eight hundred thirty six")
+printAndAssert(4364, "four thousand three hundred sixty four")
+printAndAssert(17, "seventeen")
