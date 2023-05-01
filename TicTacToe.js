@@ -3,7 +3,7 @@ const arr = [12, 75, 90, 33]
 let len = arr.length
 
 for (let i = 0; i < len; i++) {
-    for (let j =0; j < len - 1; j++) {
+    for (let j = 0; j < len - 1; j++) {
         if (arr[j] > arr[j + 1]) {
             let temp = arr[j]
             arr[j] = arr[j + 1]

@@ -1,0 +1,33 @@
+{
+  "name": "fso-part8-graphql",
+  "version": "1.0.0",
+  "description": "apollo-server-test",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Emperor-Jarlemagne/Projects.git"
+  },
+  "keywords": [
+    "gql"
+  ],
+  "author": "Jari Salminen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Emperor-Jarlemagne/Projects/issues"
+  },
+  "homepage": "https://github.com/Emperor-Jarlemagne/Projects#readme",
+  "dependencies": {
+    "@apollo/client": "^3.7.10",
+    "@apollo/server": "^4.5.0",
+    "apollo-server": "^3.12.0",
+    "dotenv": "^16.0.3",
+    "graphql": "^16.6.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.4",
+    "nodemon": "^2.0.22",
+    "uuid": "^9.0.0"
+  }
+}
