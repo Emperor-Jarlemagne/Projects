@@ -6,7 +6,14 @@ import { EDIT_NUMBER } from './queries'
 const PhoneForm = ({setError}) => {
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
-  const [changeNumber, result] = useMutation(EDIT_NUMBER)
+  const [changeNumber, result] = useMutation(EDIT_NUMBER, {
+    onError: (error) => {
+      const errors = error.graphQLErrors[0].extensions.error.errors
+      const messages = Object.values(errors).map(e => e.message).join('\n')
+      setError(messages)
+    }
+  }
+    )
 
   const submit = (event) => {
     event.preventDefault()

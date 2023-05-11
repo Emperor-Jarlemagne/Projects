@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useMutation } from '@apollo/client'
-
+import { updateCache } from '../App'
 import { CREATE_PERSON, ALL_PERSONS } from './queries'
 
 const PersonForm = ({ setError }) => {
@@ -14,13 +14,9 @@ const PersonForm = ({ setError }) => {
       setError(error.graphQLErrors[0].message)
     },
     update: (cache, response) => {
-      cache.updateQuery({ query: ALL_PERSONS }, ({ allPersons}) => {
-        return {
-          allPersons: allPersons.concat(response.data.addPerson),
+      updateCache(cache, { query: ALL_PERSONS }, response.data.addPerson)
         }
       })
-    }
-  })
 
   const submit = async (event) => {
     event.preventDefault()
