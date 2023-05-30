@@ -1,5 +1,5 @@
 # One-Off & Reference Pieces
-Useful tutorial projects from CS50x and FullstackOpen
+Useful tutorial projects from CS50x
 
 > Contains:
 >>Django
